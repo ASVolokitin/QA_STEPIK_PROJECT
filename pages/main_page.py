@@ -5,9 +5,9 @@ from .base_page import BasePage
 
 class MainPage(BasePage):
 
-    def should_be_login_link(self):
+    def should_be_login_link(self) -> None:
         assert self.is_element_present(By.CSS_SELECTOR, "#login_link_invalid"), "Login link is not presented"
 
-    def go_to_login_page(self):
+    def go_to_login_page(self) -> None:
         login_link = self.browser.find_element(By.CSS_SELECTOR, "#login_link")
         login_link.click()
