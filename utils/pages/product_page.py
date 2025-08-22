@@ -44,3 +44,9 @@ class ProductPage(BasePage):
         popup_basket_total_price = re.findall(COST_REGEX, popup_basket_total_text)[0]
 
         assert header_basket_total_price == popup_basket_total_price, f"different total basket prices in header and popup (in header: {header_basket_total_price}, in popup: {popup_basket_total_price})"
+    
+    def should_not_show_success_messages(self) -> None:
+        assert not self.is_element_present(*ProductPageLocators.SUCCESS_MESSAGES), f"success messages should not appear, found {len(self.browser.find_elements(*ProductPageLocators.SUCCESS_MESSAGES))}"
+    
+    def should_disappear_success_messages(self) -> None:
+        assert self.is_disappeared(*ProductPageLocators.SUCCESS_MESSAGES), f"success_messages should disappear, found {len(self.browser.find_elements(*ProductPageLocators.SUCCESS_MESSAGES))}"

@@ -12,17 +12,24 @@ class BasePage():
     def __init__(self, browser: WebDriver, url: str, timeout=5) -> None:
         self.browser = browser
         self.url = url
-        self.timeout = timeout
-        self.browser.implicitly_wait(timeout)
+        # self.browser.implicitly_wait(timeout)
 
     def open(self) -> None:
         self.browser.get(self.url)
     
-    def is_element_present(self, searching_method: str, target: str) -> bool:
+    def is_element_present(self, searching_method: str, target: str, timeout=5) -> bool:
         try:
-            WebDriverWait(self.browser, self.timeout).until(EC.presence_of_element_located((searching_method, target)))
+            WebDriverWait(self.browser, timeout).until(EC.presence_of_element_located((searching_method, target)))
         except TimeoutException:
             return False
+        return True
+    
+    def is_disappeared(self, searching_method: str, target: str, timeout=4) -> bool:
+        try:
+            WebDriverWait(self.browser, timeout, 1, TimeoutException).until_not(EC.presence_of_element_located((searching_method, target)))
+        except TimeoutException:
+            return False
+
         return True
 
     def solve_quiz_and_get_code(self):

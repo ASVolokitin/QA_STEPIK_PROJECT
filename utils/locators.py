@@ -10,8 +10,9 @@ class LoginPageLocators():
 
 class ProductPageLocators():
     ADD_TO_BASKET_BUTTON = (By.CLASS_NAME, "btn-add-to-basket")
-    MESSAGES_BLOCK = (By.ID, "messages")
+    # MESSAGES_BLOCK = (By.ID, "messages")
     PRODUCT_CARD_BOOK_TITLE = (By.CSS_SELECTOR, '.product_main > h1')
     POPUP_ADDED_TO_CART_BOOK_TITLE = (By.XPATH, "//*[@id='messages']//strong[1]")
     HEADER_BASKET_TOTAL = (By.XPATH, "//header[contains(@class, 'header')]//div[contains(@class, 'basket')]")
     POPUP_BASKET_TOTAL = (By.CSS_SELECTOR, '#messages > div:nth-child(3) .alertinner')
+    SUCCESS_MESSAGES = (By.CSS_SELECTOR, '#messages .alert-success')

@@ -1,0 +1,1 @@
+PRODUCT_PAGE_TEST_LINK = "http://selenium1py.pythonanywhere.com/catalogue/coders-at-work_207/?promo=offer1"
