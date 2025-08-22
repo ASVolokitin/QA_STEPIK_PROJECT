@@ -1,7 +1,7 @@
 from selenium.webdriver.common.by import By
 
 
-class MainPageLocators():
+class BasePageLocators():
     LOGIN_LINK = (By.CSS_SELECTOR, "#login_link")
 
 class LoginPageLocators():
@@ -10,7 +10,6 @@ class LoginPageLocators():
 
 class ProductPageLocators():
     ADD_TO_BASKET_BUTTON = (By.CLASS_NAME, "btn-add-to-basket")
-    # MESSAGES_BLOCK = (By.ID, "messages")
     PRODUCT_CARD_BOOK_TITLE = (By.CSS_SELECTOR, '.product_main > h1')
     POPUP_ADDED_TO_CART_BOOK_TITLE = (By.XPATH, "//*[@id='messages']//strong[1]")
     HEADER_BASKET_TOTAL = (By.XPATH, "//header[contains(@class, 'header')]//div[contains(@class, 'basket')]")
